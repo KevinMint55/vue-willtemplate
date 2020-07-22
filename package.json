@@ -1,7 +1,7 @@
 {
-  "name": "{{name}}",
+  "name": "vue-template",
   "version": "1.0.0",
-  "description": "{{description}}",
+  "description": "vue-template",
   "scripts": {
     "start": "npm run dev",
     "dev": "node scripts/devServer.js",
