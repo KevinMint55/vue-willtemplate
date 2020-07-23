@@ -1,7 +1,9 @@
 const path = require('path');
+const webpack = require('webpack');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -123,6 +125,13 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'css/[name].[chunkhash].css',
       chunkFilename: 'css/[id].[chunkhash].css',
+    }),
+    // 使用dll文件
+    new AddAssetHtmlWebpackPlugin({
+      filepath: path.resolve(__dirname, '../dll/vendor.dll.js'), // 对应的 dll 文件路径
+    }),
+    new webpack.DllReferencePlugin({
+      manifest: path.resolve(__dirname, '..', 'dll/vendor-manifest.json'),
     }),
   ],
 };

@@ -16,6 +16,9 @@ npm install / yarn
 # serve with hot reload at localhost:1000
 npm run dev / yarn dev
 
+# build for dll production with minification
+npm run build:dll / yarn build:dll
+
 # build for production with minification
 npm run build / yarn start
 ```
